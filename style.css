@@ -1,0 +1,228 @@
+/* --- Глобальные стили и переменные --- */
+:root {
+    --bg-color: #1c1c1e; /* Основной фон */
+    --card-bg-color: #2c2c2e; /* Фон карточек */
+    --text-color: #f2f2f7; /* Основной текст */
+    --text-secondary-color: #8e8e93; /* Вторичный текст (описания, статистика) */
+    --accent-color: #ee9264; /* Сине-фиолетовый акцент */
+    --link-color: #1a82f1; /* Цвет ссылок */
+    --border-radius: 16px;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    margin: 0;
+    padding: 20px 10px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.main-container {
+    max-width: 680px;
+    margin: 0 auto;
+}
+
+a {
+    color: var(--link-color);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+h1, h2, h3 {
+    margin: 0;
+    font-weight: 700;
+}
+
+h2 {
+    text-align: center;
+    font-size: 20px;
+    margin-bottom: 20px;
+    color: var(--text-secondary-color);
+}
+
+section {
+    margin-bottom: 40px;
+}
+
+/* --- Секция профиля --- */
+.profile-banner {
+    width: 100%;
+    border-radius: var(--border-radius);
+    margin-bottom: 20px;
+}
+
+.profile-info {
+    text-align: center;
+}
+
+.profile-info h1 {
+    font-size: 28px;
+    margin-bottom: 16px;
+}
+
+.profile-actions {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    margin-bottom: 16px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 24px;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+.btn:hover {
+    text-decoration: none;
+    transform: scale(1.03);
+}
+
+.btn-primary {
+    background-color: var(--accent-color);
+    color: #fff;
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--text-color);
+    border: 1px solid var(--text-secondary-color);
+}
+
+.profile-info p {
+    color: var(--text-secondary-color);
+    line-height: 1.6;
+    font-size: 16px;
+    margin: 0 auto 10px;
+    max-width: 90%;
+}
+
+/* --- Сетка --- */
+.grid {
+    display: grid;
+    gap: 12px;
+}
+
+.grid-2-col {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.grid-4-col {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+/* --- Стили для карточек --- */
+.card {
+    background-color: var(--card-bg-color);
+    border-radius: var(--border-radius);
+    padding: 16px;
+    text-align: center;
+    color: var(--text-color);
+    text-decoration: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.card:hover {
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    text-decoration: none;
+}
+
+/* Карточка-ссылка (иконка + текст) */
+.card-link {
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 12px;
+    font-weight: 500;
+    font-size: 16px;
+}
+
+/* Карточка с большой иконкой сверху */
+.card-icon-top {
+    padding: 24px 16px;
+    font-weight: 500;
+}
+
+.icon-large {
+    font-size: 32px;
+    margin-bottom: 12px;
+}
+
+/* Карточка только с иконкой */
+.card-icon-only {
+    padding: 12px;
+    height: 60px;
+}
+.icon-small {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* Карточка проекта (лого + заголовок + описание) */
+.card-project {
+    align-items: flex-start;
+    text-align: left;
+    gap: 12px;
+}
+
+.card-project img {
+    height: 30px;
+    object-fit: contain;
+    margin-bottom: 8px;
+}
+
+.card-project h3 {
+    font-size: 16px;
+    color: var(--link-color);
+}
+
+.card-project p {
+    font-size: 14px;
+    color: var(--text-secondary-color);
+    margin: 0;
+    line-height: 1.4;
+}
+
+
+/* --- Модификаторы сетки --- */
+.full-width {
+    grid-column: 1 / -1; /* Растянуть на всю ширину родительской сетки */
+}
+
+.col-span-4 {
+    grid-column: span 4;
+}
+
+/* --- Адаптивность для мобильных устройств --- */
+@media (max-width: 600px) {
+    .grid-2-col, .grid-4-col {
+        grid-template-columns: 1fr; /* Всегда одна колонка на маленьких экранах */
+    }
+
+    .col-span-4 {
+        grid-column: span 1; /* Отменяем растягивание */
+    }
+
+    .grid-4-col {
+        grid-template-columns: repeat(4, 1fr); /* Но для маленьких иконок оставляем 4 колонки */
+    }
+    
+    .card-project { /* На мобильных снова 1 колонка */
+        grid-column: 1 / -1;
+    }
+    
+    .profile-actions {
+        flex-wrap: wrap;
+    }
+}
