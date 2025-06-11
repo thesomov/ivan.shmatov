@@ -226,3 +226,15 @@ section {
         flex-wrap: wrap;
     }
 }
+@media (max-width: 767.98px) {
+    .grid-4-col {
+        grid-template-columns: repeat(2, 1fr); /* Две колонки */
+    }
+}
+
+/* Для экранов шириной до 480px (например, смартфоны) */
+@media (max-width: 479.98px) {
+    .grid-4-col {
+        grid-template-columns: 1fr; /* Одна колонка, элементы друг под другом */
+    }
+}
