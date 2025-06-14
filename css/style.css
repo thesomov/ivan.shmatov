@@ -30,7 +30,7 @@ a {
 }
 
 a:hover {
-    text-decoration: underline;
+    text-decoration: none; /* Убираем подчеркивание при наведении для всех ссылок */
 }
 
 h1, h2, h3 {
@@ -58,6 +58,17 @@ section {
 
 .profile-info {
     text-align: center;
+}
+
+.profile-picture {
+    width: 100%; /* Ширина фотографии */
+    height: 200px; /* Высота фотографии (чтобы была квадратной) */
+    border-radius: 12px; /* Скругление углов, как у кнопок */
+    object-fit: cover; /* Сохраняет пропорции изображения, обрезая лишнее */
+    display: block; /* Для возможности использования margin: auto */
+    margin-left: auto; /* Центрирование по горизонтали */
+    margin-right: auto; /* Центрирование по горизонтали */
+    margin-bottom: 20px; /* Отступ снизу до имени */
 }
 
 .profile-info h1 {
@@ -105,6 +116,11 @@ section {
     max-width: 90%;
 }
 
+/* Стиль для рекламной ссылки */
+.link-advertisement {
+    color: var(--accent-color); /* Используем акцентный цвет */
+}
+
 /* --- Сетка --- */
 .grid {
     display: grid;
@@ -148,6 +164,12 @@ section {
     font-size: 16px;
 }
 
+.card-link-icon {
+    width: 24px; /* Размер иконки */
+    height: 24px; /* Размер иконки */
+    object-fit: contain; /* Чтобы логотип не искажался */
+}
+
 /* Карточка с большой иконкой сверху */
 .card-icon-top {
     padding: 24px 16px;
@@ -157,6 +179,13 @@ section {
 .icon-large {
     font-size: 32px;
     margin-bottom: 12px;
+}
+
+.icon-large-img {
+    width: 40px; /* Ширина логотипа */
+    height: 40px; /* Высота логотипа */
+    object-fit: contain; /* Чтобы логотип не искажался и полностью помещался */
+    margin-bottom: 12px; /* Отступ снизу, как у .icon-large */
 }
 
 /* Карточка только с иконкой */
